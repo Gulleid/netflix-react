@@ -1,15 +1,25 @@
-function MovieCard() {
+function MovieCard(props) {
+  console.log("props are", props?.data[0]?.score);
   return (
-    <div className="movie-card">
-      <div className="movie-image">
-        <img
-          src="https://i.pinimg.com/originals/a2/34/75/a234753b69e3bd27b7f1d448956c38af.jpg"
-          alt="movie"
+    <>
+      { props?.data?.length>0 &&
+        props?.data?.map((d, idx) => {
+          return (
+            <div className="movie-card">
+              <div className="movie-image">
+                <img
+        src= {d?.show?.image?.medium}
+         alt="movie"
         />
-      </div>
+              </div>
 
-      <h3 className="movie-heading">Breaking Bad</h3>
-    </div>
+              {/* <h3 className="movie-heading">{props.data.show.name}</h3> */}
+            </div>
+          )
+        })
+      }
+    </>
+
   );
 }
 
